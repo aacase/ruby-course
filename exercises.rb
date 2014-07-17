@@ -4,7 +4,7 @@ module Exercises
   #  - Triples a given string `str`
   #  - Returns "nope" if `str` is "wishes"
   def self.ex0(str)
-    # TODO
+    return "#{str}#{str}#{str}"
   end
 
   # Exercise 1
@@ -70,7 +70,7 @@ module Exercises
 end
 
 
-class RPS
+class RPS #look on code academy for this.
   # Rock, Paper, Scissors
   # Make a 2-player game of rock paper scissors. It should have the following:
   #
