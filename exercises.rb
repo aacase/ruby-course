@@ -14,31 +14,40 @@ module Exercises
   # Exercise 1
   #  - Returns the number of elements in the array
   def self.ex1(array)
-    # TODO
+    return array.length
   end
 
   # Exercise 2
   #  - Returns the second element of an array
   def self.ex2(array)
     # TODO
+    if array.length <2
+      return false
+    else
+      return array[1]
+    end
   end
 
   # Exercise 3
   #  - Returns the sum of the given array of numbers
   def self.ex3(array)
     # TODO
+   array.inject(:+)
   end
 
   # Exercise 4
   #  - Returns the max number of the given array
   def self.ex4(array)
     # TODO
+    array=array.sort
+    array[-1]
+    
   end
 
   # Exercise 5
   #  - Iterates through an array and `puts` each element
   def self.ex5(array)
-    # TODO
+     array.each{|arr| puts arr}
   end
 
   # Exercise 6
