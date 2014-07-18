@@ -63,5 +63,15 @@ describe "Exercise 5"do
   end
 end
 
+describe "Exercise 6" do
+  it "updates the last item in the array to panda. If last element is panda, update to GODZILLA" do
+    array=["bird","fish","cow"]
+    array2=["bird","fist","panda"]
+    result1=Exercises.ex6(array)
+    result2=Exercises.ex6(array2)
+    expect(result1).to eq('panda')
+    expect(result2).to eq('GODZILLA')
+  end
+end
 
 
