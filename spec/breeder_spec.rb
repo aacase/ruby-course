@@ -5,12 +5,12 @@ require "./breeder.rb"
 describe 'Puppies' do
 
  before do
-   @test = Puppies.new
+   @test = Puppy.new('scotty')
  end
 
-  it 'creates an empty array on initialize'do
-    result=@test.puparray
-    expect(result.length).to eq(0)
+  it 'creates a new puppy with a breed'do
+   
+    expect(@test.breed).to eq('scotty')
   end
   
   

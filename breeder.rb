@@ -1,9 +1,10 @@
 class Nice_farm_where_dogs_can_play
-    attr_accessor :puparray, :puppy, :purchasecount, :purchaserequest
+    attr_accessor :puparray, :puppy, :purchasecount, :purchaserequest, :soldpups
     def initialize
       @puparray=puparray
       @puparray=[]
       @purchaserequest=[]
+      
     end
     def add_to_inventory(puppy)
         @puppy=puppy
@@ -19,7 +20,6 @@ class Nice_farm_where_dogs_can_play
           if dogtype[:breed]==@puppy.breed
             @puparray.push({
           :breed => dogtype[:breed],
-          :available => true,
           :cost => dogtype[:cost]
           })      
           end
@@ -30,17 +30,44 @@ class Nice_farm_where_dogs_can_play
       @purchasecount=0
       @breed_you_want=breed_you_want
       @yourname=yourname
-      @puparray.each  do |value|
+      @puparray.select  do |value|
         
-        if purchasecount <1 && value[:breed]=breed_you_want
+        
+        if @purchasecount <1 && value[:breed]==breed_you_want
+          @purchasecount+=1
           @purchaserequest.push({
-            :breed => value[:breed],
+            :breed => breed_you_want,
             :id => yourname,
-            :cost=> value[:cost]})
-          @purchasecount +=1
+            :cost=> value[:cost],
+            :available => true})
+          
+
         end
       end
     end  
+    end
+
+    def approval(id)
+      @id=id
+      @purchaserequest.each do |a|
+        if a[:id]==id
+          a[:available]=false
+        end
+      end
+    end
+
+    def stats
+      @soldpups=soldpups
+      soldpups= []
+      purchaserequest.each do |n|
+        if n[:available]==false
+          soldpups.push(n)
+        end
+      end
+
+      
+      puts "We have birthed #{@puparray.length} puppies and found homes for #{soldpups.length} of them"
+      
     end
 end
 
@@ -50,6 +77,8 @@ class Puppy
     @breed=breed
   end
 end
+
+
 
 
 # class Purchase
